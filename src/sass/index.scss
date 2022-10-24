@@ -1,2 +1,114 @@
 @import './common';
 @import './example';
+
+* {
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+.search-form {
+  //   width: 100%;
+  //   background-color: #671ddf;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  left: 50%;
+  transform: translate(-50%);
+
+  padding: 10px 49px;
+}
+
+input {
+  width: 395px;
+  border: 2px solid #fff;
+  background: transparent;
+  padding: 10px 28px;
+  border-radius: 100px;
+  outline: none;
+  font-size: 20px;
+  color: #eaeaea;
+}
+
+::-webkit-input-placeholder {
+  color: #eaeaea;
+  font-family: Roboto;
+  text-transform: uppercase;
+}
+
+button {
+  position: absolute;
+  //   top: 21px;
+  right: 49px;
+  cursor: pointer;
+  color: #1c859e;
+  background: #eaeaea;
+  border: 0px;
+  width: 118px;
+  height: 47px;
+  border-radius: 100px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.header {
+  background-color: #671ddf;
+  height: 67px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1400px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo-card {
+  flex-basis: calc((100% - 60px) / 4);
+  padding: 0px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.info {
+  padding: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-family: pt sans narrow;
+  text-align: center;
+  font-stretch: condensed;
+}
+
+.info p {
+  width: 70px;
+}
+
+.info-item {
+  flex-basis: calc((100% - 15px) / 4);
+  font-size: 16px;
+
+  margin: 0;
+}
+
+b {
+  display: block;
+  margin: 0;
+}
