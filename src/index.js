@@ -15,7 +15,11 @@ const button = document.querySelector('button');
 
 gallery.addEventListener('click', onImageClick);
 
-const lightbox = new SimpleLightbox('.gallery a');
+const lightbox = new SimpleLightbox('.gallery a', {
+  captions: true,
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
 let page = 1;
 let limit = 40;
@@ -60,23 +64,23 @@ async function render(page = 1) {
       totalPage = data.data.totalHits;
     }
 
-    gallery.insertAdjacentHTML('beforeend', markup(data.data.hits));
+    await gallery.insertAdjacentHTML('beforeend', markup(data.data.hits));
+
+    lightbox.refresh();
 
     if (page > 1) {
       //***********************/
-
+      console.log('test scroll');
       const { height: cardHeight } = document
         .querySelector('.gallery')
         .firstElementChild.getBoundingClientRect();
 
-      window.scrollBy({
+      await window.scrollBy({
         top: cardHeight * 2,
         behavior: 'smooth',
       });
       //***********************/
     }
-
-    lightbox.refresh();
 
     const lastCard = gallery.lastElementChild;
     if (lastCard) {
