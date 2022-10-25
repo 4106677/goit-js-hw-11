@@ -1,34 +1,20 @@
-{{!-- {{#each this}}
-  <li class='galery__element'>
-    <div class='thumb'>
-      <img
-        class='gallery__element-image'
-        src='{{webformatURL}}'
-        alt='{{tags}}'
-      /></div>
-
-    <ul class='gallery__element-info'>
-      <li>
-        <h2>Likes</h2>
-        <p>{{likes}}</p>
-      </li>
-      <li>
-        <h2>Views</h2>
-        <p>{{views}}</p>
-
-      <li>
-        <h2>Comments</h2>
-        <p>{{comments}}</p>
-      <li>
-        <h2>Downloads</h2>
-        <p>{{downloads}}</p>
-    </ul>
-  </li>
-{{/each}} --}}
-
 {{#each this}}
   <div class='photo-card'>
-    <img src='{{webformatURL}}' alt='{{tags}}' loading='lazy' height='200' />
+    <a
+      class='gallery__item'
+      href='{{largeImageURL}}'
+      target='_parent'
+      rel='noreferrer noopener'
+    >
+      <img
+        class='gallery__image'
+        src='{{webformatURL}}'
+        alt='{{tags}}'
+        loading='lazy'
+        height='200'
+      />
+    </a>
+
     <div class='info'>
       <p class='info-item'>
         <b>Likes</b>
