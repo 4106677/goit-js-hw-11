@@ -21,5 +21,6 @@ export const fetchImg = async (input, page) => {
     return response;
   } catch (error) {
     Notiflix.Notify.failure('Oops, error!');
+    return;
   }
 };

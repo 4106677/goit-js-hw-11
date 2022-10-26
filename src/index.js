@@ -23,7 +23,9 @@ const lightbox = new SimpleLightbox('.gallery a', {
 
 let page = 1;
 let limit = 40;
-let totalPage = limit / 40;
+let totalImg = 40;
+let totalPage = totalImg / 40;
+
 let nexpPage = 2;
 
 function onImageClick(evt) {
@@ -55,20 +57,32 @@ function onSubmit(e) {
 async function render(page = 1) {
   const data = await fetchImg(query, page);
   if (data.data.totalHits === 0) {
-    Notiflix.Notify.info(
+    Notiflix.Notify.warning(
       'Sorry, there are no images matching your search query. Please try again.'
     );
   } else {
     if (page === 1) {
-      Notiflix.Notify.info(`Hooray! We found ${data.data.totalHits} images.`);
-      totalPage = data.data.totalHits;
+      Notiflix.Notify.success(
+        `Hooray! We found ${data.data.totalHits} images.`
+      );
     }
-
+    totalImg = data.data.totalHits;
     await gallery.insertAdjacentHTML('beforeend', markup(data.data.hits));
 
     lightbox.refresh();
 
+    console.log(page);
+    console.log(Math.ceil(totalImg / limit) === page);
+    if (Math.ceil(totalImg / limit) === page) {
+      Notiflix.Notify.info(
+        "We're sorry, but you've reached the end of search results."
+      );
+      return;
+    }
     if (page > 1) {
+      // console.log(page);
+      // console.log(totalImg / page);
+
       //***********************/
       console.log('test scroll');
       const { height: cardHeight } = document
